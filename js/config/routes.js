@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('mp3Playground')
+  angular.module('Mp3Playground')
     .config(MainRouter);
 
   MainRouter.$inject = ['$stateProvider', '$urlRouterProvider'];
@@ -15,6 +15,6 @@
         url: '/',
         templateUrl: 'js/templates/home.html'
       })
-      
+
   }
 }());
