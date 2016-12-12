@@ -14,7 +14,18 @@
       .state('home', {
         url: '/',
         templateUrl: 'js/templates/home.html'
+      });
+      .state('about', {
+        url: '/about',
+        templateUrl: 'about.html'
       })
+      .state('signin', {
+        url: '/signin',
+        templateUrl: 'signin.html',
+        controller: 'SignInController',
+        controllerAs: 'vm'
+      });
+
 
   }
 }());
