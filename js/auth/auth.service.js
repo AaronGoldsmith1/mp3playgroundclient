@@ -20,7 +20,7 @@
     function isLoggedIn() {
       return (token.retrieve() != null);
     }
-
+//update to existing routes in server
     function logIn(data) {
       var promise = $http({
         method: 'POST',
