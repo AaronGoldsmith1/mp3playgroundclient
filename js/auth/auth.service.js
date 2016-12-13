@@ -31,7 +31,7 @@
         // if the request succeeded, then run this
         // handler, and pass on the decoded token.
         function(res) {
-          token.store(res.data);
+          token.store(res.data.token);
           return token.decode();
         }
         // since there is no error handler, pass
