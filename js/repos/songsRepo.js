@@ -9,6 +9,7 @@ angular.module('Mp3Playground')
         'get': function(songId){
           songId = songId ? songId : '';
           return $http.get(baseUrl + songId);
+          // wavesurfer.load(baseUrl + songId);
         },
         'create': function(data){
           //todo: validate data is accurate
