@@ -14,10 +14,14 @@
       .state('home', {
         url: '/',
         templateUrl: 'js/templates/home.html'
-      });
+      })
       .state('about', {
         url: '/about',
         templateUrl: 'about.html'
+      })
+      .state('songs', {
+        url: '/songs',
+        templateUrl: 'js/templates/songs.html'
       })
       .state('signin', {
         url: '/signin',

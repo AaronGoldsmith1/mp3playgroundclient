@@ -1,10 +1,11 @@
-angular.module('mp3playground')
+angular.module('Mp3Playground')
   .controller('PlaylistsController', PlaylistsController);
 
 PlaylistsController.$inject = ['$http']
 
 function PlaylistsController($http){
-  var self = this;
+  var self = this
+
   self.all = [];
   self.addPlaylist = addPlaylist;
   self.newPlaylist = {};

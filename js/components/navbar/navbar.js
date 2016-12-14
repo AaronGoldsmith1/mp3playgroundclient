@@ -1,9 +1,12 @@
-/*(function() {
+(function() {
   "use strict";
 
   angular
-    .module("InfamousCriminals")
-    .controller("NavbarController", NavbarController);
+    .module("Mp3Playground")
+    .component("navbar", {
+      templateUrl: '/js/components/navbar/navbar.html',
+      controller: NavbarController
+    });
 
   NavbarController.$inject = ["$log", "authService"];
 
@@ -14,4 +17,4 @@
 
     $log.info("NavbarController loaded!");
   }
-})();*/
+})();
