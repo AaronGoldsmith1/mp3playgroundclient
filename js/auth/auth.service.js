@@ -24,7 +24,7 @@
     function logIn(data) {
       var promise = $http({
         method: 'POST',
-        url:    'http://localhost:3000/api/',
+        url:    'http://localhost:3000/api/authenticate',
         data:   data
       })
       .then(
@@ -32,7 +32,7 @@
         // handler, and pass on the decoded token.
         function(res) {
           token.store(res.data.token);
-          return token.decode();
+          return res.data.user;
         }
         // since there is no error handler, pass
         // an error on to the next promise, without

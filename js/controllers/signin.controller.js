@@ -3,7 +3,7 @@
   "use strict";
 
   angular
-    .module("InfamousCriminals")
+    .module("Mp3Playground")
     .controller("SignInController", SignInController);
 
   SignInController.$inject = ["$log", "authService", "userService", "$state"];
@@ -20,8 +20,8 @@
     };
     vm.submitSignUp = submitSignUp;
     vm.logIn = {
-      email:    "pj@ga.co",
-      password: "12345"
+      email:    "bbb@bbb.com",
+      password: "password2"
     };
     vm.submitLogIn = submitLogIn;
     vm.conflict = false;
@@ -52,9 +52,9 @@
         .logIn(vm.logIn)
         .then(
           // on success
-          function(decodedToken) {
-            $log.info('Logged in!', decodedToken);
-            $state.go('index');
+          function(user) {
+            $log.info('Logged in!', user);
+            $state.go('home');
           },
           // on error
           function(err) {

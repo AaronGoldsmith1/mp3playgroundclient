@@ -1,0 +1,5 @@
+<div ng-controller="playlistsController as playlists">
+  <ul>
+    <li ng-repeat="playlist in playlists.playlists">{{ playlist.name}} <a ui-sref="playlist({ id : playlist._id})">View</a></li>
+  </ul>
+</div>

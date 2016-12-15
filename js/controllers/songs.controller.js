@@ -14,7 +14,7 @@ function songsController($http, SongsRepo, tokenService){
   self.addSongToPlaylist = addSongToPlaylist;
   self.removeSongFromPlaylist = removeSongFromPlaylist;
 */
-  tokenService.store('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODRmNzMzYWM2YzBiZTQxNzk4YzMyZTgiLCJlbWFpbCI6ImJiYkBiYmIuY29tIiwibmFtZSI6ImJiYiIsImlhdCI6MTQ4MTY5MjExNSwiZXhwIjoxNDgxNjkyNDE1fQ.hESFZTNMWruvMwrT65HuY7439s6_5eb5Kvym4WehB2A'); //Dont' do this
+
   function getAllSongs(){
     console.log('SongsController::getAllSongs')
     SongsRepo.get().then(function(res){
