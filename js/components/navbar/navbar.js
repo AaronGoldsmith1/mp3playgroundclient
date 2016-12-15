@@ -4,7 +4,7 @@
   angular
     .module("Mp3Playground")
     .component("navbar", {
-      templateUrl: '/js/components/navbar/navbar.html',
+      templateUrl: 'js/components/navbar/navbar.html',
       controller: NavbarController
     });
 
