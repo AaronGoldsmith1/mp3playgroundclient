@@ -1,0 +1,6 @@
+<div ng-controller="PlaylistController as playlist">
+  <playlist-player songs="playlist.playlist.songs" ng-if="playlist.playlist.songs"></playlist-player>
+  <pre>
+    {{ playlist.playlist.songs | json}}
+  </pre>
+</div>

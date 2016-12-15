@@ -25,10 +25,16 @@
       })
       .state('signin', {
         url: '/signin',
-        templateUrl: 'signin.html',
-        controller: 'SignInController',
-        controllerAs: 'vm'
-      });
+        templateUrl: 'js/templates/signin.html',
+      })
+      .state('playlists', {
+        url: '/playlists',
+        templateUrl: 'js/templates/playlists.html'
+      })
+      .state('playlist', {
+        url: '/playlists/:id',
+        templateUrl: 'js/templates/playlistSingle.html'
+      })
 
 
   }

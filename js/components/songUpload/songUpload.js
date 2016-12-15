@@ -6,18 +6,19 @@ angular.module('Mp3Playground')
     bindings: {}
   });
 
-songUpload.$inject = ['$http', '$element']
+songUpload.$inject = ['$http', '$element', 'SongsRepo']
 
-function songUpload($http, $element){
+function songUpload($http, $element, SongsRepo){
   var ctrl = this;
   ctrl.onFileInputChanged = function(){
     console.log("onFileInputChanged", arguments);
-    var $input = $element.find('input')[0];
+    var $input = $element.find('input')[2];
     var file = $input.files[0];
     if(file == null){
       return alert('No file selected.');
     }
 
+    //console.log(ctrl.song);
     getSignedRequest(file);
   }
 
@@ -26,6 +27,7 @@ function songUpload($http, $element){
       .then(function(res){
         ctrl.data = res.data;
         console.log(res);
+        ctrl.song.url = res.data.url;
         uploadFile(file, res.data.signedRequest, res.data.url);
       })
   } 
@@ -36,7 +38,9 @@ function songUpload($http, $element){
     xhr.onreadystatechange = () => {
       if(xhr.readyState === 4){
         if(xhr.status === 200){
-          ctrl.data = url;
+          SongsRepo.create(ctrl.song).then(function(res){
+            console.log(res.data);
+          });
           //document.getElementById('preview').src = url;
           //document.getElementById('avatar-url').value = url;
         }

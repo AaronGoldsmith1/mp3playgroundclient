@@ -1,0 +1,7 @@
+<div class="wavesurfer-container"></div>
+
+<button ng-click="$ctrl.pause()">Pause</button><button ng-click="$ctrl.toggleMute()">Mute</button>
+<h4>Songs</h4>
+<ul>
+  <li ng-repeat="song in $ctrl.songs">{{ song.title }} - {{ song.artist }} <button ng-click="$ctrl.playSong(song)">Play</button></li>
+</ul>
