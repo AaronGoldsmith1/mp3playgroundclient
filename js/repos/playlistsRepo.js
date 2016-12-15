@@ -1,7 +1,7 @@
 angular.module('Mp3Playground')
   .factory('PlaylistsRepo', playlistsRepo);
 
-  $playlistsRepo.inject(['$http'])
+  playlistsRepo.inject = ['$http']
 
   function playlistsRepo($http){
     var baseUrl = 'http://localhost:3000/api/playlists/';
@@ -11,7 +11,6 @@ angular.module('Mp3Playground')
           return $http.get(baseUrl + playlistId);
         },
         'create': function(data){
-
           return $http.post(baseUrl, data);
         },
         'update': function(playlistId, data){

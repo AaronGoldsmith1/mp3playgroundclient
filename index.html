@@ -26,6 +26,16 @@
     </nav>
     <div id="waveform"></div>
     <song-upload></song-upload>
+    <div>
+    <md-wavesurfer-audio player-wave-color="gray" player-progress-color="black"
+                       player-backend="MediaElement">
+    <md-wavesurfer-source ng-repeat="item in longList" src="{{item.url}}"
+                          title="{{item.title}}"></md-wavesurfer-source>
+
+
+  </md-wavesurfer-audio>
+  </div>
+
 
     <section ui-view></section>
 
@@ -41,6 +51,8 @@
     <script src="js/auth/user.service.js"></script>
     <script src="js/components/navbar/navbar.js"></script>
     <script src="js/components/songUpload/songUpload.js"></script>
+    <script src="js/components/wavesurfer/wavesurfer.js"></script>
+    <script src="js/wavesurfer.directive.js"></script>
     <script src="js/repos/songsRepo.js"></script>
     <script src="js/repos/playlistsRepo.js"></script>
     <script src="js/controllers/songs.controller.js"></script>
