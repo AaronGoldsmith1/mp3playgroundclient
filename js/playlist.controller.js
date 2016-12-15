@@ -21,7 +21,7 @@ function PlaylistsController($http){
 
   function getAllPlaylists(){
     $http
-      .get('https://mp3playground-api.herokuapp.com/playlists')
+      .get('https://mp3playground-api.herokuapp.com/api/playlists')
       .then(function(response){
         self.all = response.data.playlists;
       });
@@ -29,7 +29,7 @@ function PlaylistsController($http){
 
   function addPlaylist(){
     $http
-      .post('https://mp3playground-api.herokuapp.com/playlists', self.newPlaylist)
+      .post('https://mp3playground-api.herokuapp.com/api/playlists', self.newPlaylist)
       .then(function(response){
         getAllPlaylists();
       });
@@ -38,7 +38,7 @@ function PlaylistsController($http){
 
   function deletePlaylist(playlist){
     $http
-      .delete("https://mp3playground-api.herokuapp.com/playlists" + playlist._id)
+      .delete("https://mp3playground-api.herokuapp.com/api/playlists" + playlist._id)
       .then(function(response){
         var index = self.all.indexOf(playlist);
         self.all.splice(index, 1);
