@@ -16,11 +16,11 @@ function songsController($http, SongsRepo, tokenService){
 */
 
   function getAllSongs(){
-    console.log('SongsController::getAllSongs')
+    
     SongsRepo.get().then(function(res){
       console.log(res.data);
       self.songList = res.data;
-    }, function(res))
+    }, function(res)
   }
 
   getAllSongs();
