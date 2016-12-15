@@ -21,7 +21,7 @@ function PlaylistsController($http){
 
   function getAllPlaylists(){
     $http
-      .get('http://localhost:3000/api/playlists')
+      .get('https://mp3playground-api.herokuapp.com/playlists')
       .then(function(response){
         self.all = response.data.playlists;
       });
