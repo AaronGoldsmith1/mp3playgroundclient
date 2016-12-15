@@ -4,7 +4,7 @@ angular.module('Mp3Playground')
   SongsRepo.$inject = ['$http'];
 
   function SongsRepo($http){
-    var baseUrl = 'https://mp3playground-api.herokuapp.com/songs/';
+    var baseUrl = 'https://mp3playground-api.herokuapp.com/api/songs/';
     return {
         'get': function(songId){
           songId = songId ? songId : '';

@@ -1,6 +1,6 @@
 angular.module('Mp3Playground')
   .component('playlistPlayer', {
-    templateUrl: '/js/components/playlistPlayer/playlistPlayer.html',
+    templateUrl: 'js/components/playlistPlayer/playlistPlayer.html',
     controller: playlistPlayer,
     require: 'ngModel',
     bindings: {
