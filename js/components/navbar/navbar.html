@@ -3,8 +3,8 @@
  <nav class="navbar navbar-default navbar-fixed-top">
    <div class="container">
      <a ui-sref="welcome" class="navbar-brand">Home</a>
-       <button ng-hide="vm.authService.isLoggedIn()" ui-sref="signin" type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
-       <button ng-show="vm.authService.isLoggedIn()" ng-click= "vm.authService.logOut()" type="button" class="btn btn-default navbar-btn navbar-right">Sign out</button>
+       <button ng-hide="$ctrl.authService.isLoggedIn()" ui-sref="signin" type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
+       <button ng-show="$ctrl.authService.isLoggedIn()" ng-click= "$ctrl.authService.logOut()" type="button" class="btn btn-default navbar-btn navbar-right">Sign out</button>
    </div>
  </nav>
 </header>

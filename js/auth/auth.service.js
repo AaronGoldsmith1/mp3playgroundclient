@@ -24,15 +24,15 @@
     function logIn(data) {
       var promise = $http({
         method: 'POST',
-        url:    'http://localhost:3000/api/authenticate',
+        url:    'http://localhost:3000/api/token',
         data:   data
       })
       .then(
         // if the request succeeded, then run this
         // handler, and pass on the decoded token.
         function(res) {
-          token.store(res.data.token);
-          return res.data.user;
+          token.store(res.data);
+          return token.decode();
         }
         // since there is no error handler, pass
         // an error on to the next promise, without

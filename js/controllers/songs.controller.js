@@ -20,7 +20,7 @@ function songsController($http, SongsRepo, tokenService){
     SongsRepo.get().then(function(res){
       console.log(res.data);
       self.songList = res.data;
-    }, function(res){ debugger;/*TODO */ })
+    }, function(res))
   }
 
   getAllSongs();
