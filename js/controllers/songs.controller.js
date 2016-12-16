@@ -16,12 +16,13 @@ function songsController($http, SongsRepo, tokenService){
 */
 
   function getAllSongs(){
-
     SongsRepo.get().then(function(res){
       console.log(res.data);
       self.songList = res.data;
-    }), function(res){}
+    });
   };
 
   getAllSongs();
+
+
 };

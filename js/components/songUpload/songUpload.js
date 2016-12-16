@@ -6,10 +6,12 @@ angular.module('Mp3Playground')
     bindings: {}
   });
 
-songUpload.$inject = ['$http', '$element', 'SongsRepo']
+songUpload.$inject = ['$http', 'SongsRepo', '$element']
 
-function songUpload($http, $element, SongsRepo){
+function songUpload($http, SongsRepo, $element){
   var ctrl = this;
+  ctrl.songsRepo = SongsRepo;
+
   ctrl.onFileInputChanged = function(){
     console.log("onFileInputChanged", arguments);
     var $input = $element.find('input')[2];
@@ -38,7 +40,7 @@ function songUpload($http, $element, SongsRepo){
     xhr.onreadystatechange = () => {
       if(xhr.readyState === 4){
         if(xhr.status === 200){
-          SongsRepo.create(ctrl.song).then(function(res){
+          ctrl.songsRepo.create(ctrl.song).then(function(res){
             console.log(res.data);
           });
           //document.getElementById('preview').src = url;

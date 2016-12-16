@@ -8,7 +8,7 @@ angular.module('Mp3Playground')
     }
   });
 
-songUpload.$inject = ['$http', '$element']
+playlistPlayer.$inject = ['$http', '$element']
 
 function playlistPlayer($http, $element){
   var ctrl = this;
