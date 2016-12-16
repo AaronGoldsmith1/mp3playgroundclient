@@ -29,7 +29,7 @@
           // on success
           function(decodedToken) {
             $log.info('Logged in!', decodedToken);
-            $state.go('index');
+            $state.go('home');
           },
           // on error
           function(err) {
