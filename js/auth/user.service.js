@@ -19,7 +19,7 @@
     function create(data) {
       var promise = $http({
         method: 'POST',
-        url:    'https://mp3playground-api.herokuapp.com/users',
+        url:    'https://mp3playground-api.herokuapp.com/api/users',
         data:   data
       });
 

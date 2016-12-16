@@ -23,7 +23,7 @@ function songUpload($http, $element, SongsRepo){
   }
 
   function getSignedRequest(file){
-    $http.get('https://mp3playground-api.herokuapp.com/api/sign-s3?file-name=' + file.name + '&file-type=' + file.type)
+    $http.get('https://mp3playground-api.herokuapp.com/sign-s3?file-name=' + file.name + '&file-type=' + file.type)
       .then(function(res){
         ctrl.data = res.data;
         console.log(res);

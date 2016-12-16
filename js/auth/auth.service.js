@@ -24,7 +24,7 @@
     function logIn(data) {
       var promise = $http({
         method: 'POST',
-        url:    'https://mp3playground-api.herokuapp.com',
+        url:    'https://mp3playground-api.herokuapp.com/api/token',
         data:   data
       })
       .then(
