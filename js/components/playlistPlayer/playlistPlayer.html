@@ -2,10 +2,11 @@
 
 <button ng-click="$ctrl.skipBackward()"><<</button>
 <button ng-click="$ctrl.playPause()">Play</button>
-<button ng-click="$ctrl.playPause()">Pause</button>
+<button ng-click="$ctrl.pause()">Pause</button>
 <button ng-click="$ctrl.toggleMute()">Mute</button>
 <button ng-click="$ctrl.skipForward()">>></button>
-<h4>Songs</h4>
+<button ng-click="$ctrl.nextSong()">Next</button>
+<h4>Songs!</h4>
 <ul>
   <li ng-repeat="song in $ctrl.songs">{{ song.title }} - {{ song.artist }} <button ng-click="$ctrl.playSong(song)">Play</button></li>
 </ul>
