@@ -6,9 +6,9 @@ angular.module('Mp3Playground')
     bindings: {}
   });
 
-songUpload.$inject = ['$http', 'SongsRepo', '$element']
+songUpload.$inject = ['$http', 'SongsRepo', '$element', 'AudioParser']
 
-function songUpload($http, SongsRepo, $element){
+function songUpload($http, SongsRepo, $element, AudioParser){
   var ctrl = this;
   ctrl.songsRepo = SongsRepo;
 
@@ -19,9 +19,13 @@ function songUpload($http, SongsRepo, $element){
     if(file == null){
       return alert('No file selected.');
     }
+    AudioParser.getInfo(file).then(function(fileInfo){
+       getSignedRequest(file);
+    });
+
 
     //console.log(ctrl.song);
-    getSignedRequest(file);
+
   }
 
   function getSignedRequest(file){
@@ -29,7 +33,10 @@ function songUpload($http, SongsRepo, $element){
       .then(function(res){
         ctrl.data = res.data;
         console.log(res);
+
+        ctrl.song = ctrl.song || {};
         ctrl.song.url = res.data.url;
+        ctrl.song.s3_key = file.name;
         uploadFile(file, res.data.signedRequest, res.data.url);
       })
   } 
