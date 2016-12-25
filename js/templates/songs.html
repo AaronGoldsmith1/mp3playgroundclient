@@ -1,10 +1,14 @@
 <div ng-controller="songsController as songs">
-  <h1>Songs</h1>
+  <md-toolbar class="md-toolbar-sm">
+    <div class="text-center" class="md-toolbar-tools">
+      <h2 style="font-size: 24px;">Songs</h1>
+    </div>
+  </md-toolbar>
 
   <md-list layout="column">
     <md-virtual-repeat-container style="height: 250px">
   <md-list-item md-virtual-repeat="song in songs.songList">
-    <p>{{song.artist}} - {{song.title}}</p>
+    {{song.artist}} - {{song.title}}
 
     </md-list-item>
   </md-virtual-repeat-container>
