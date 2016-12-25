@@ -1,11 +1,14 @@
 <div ng-controller="songsController as songs">
   <h1>Songs</h1>
 
-  <ol>
-  <li ng-repeat="song in songs.songList">
-    {{song.artist}} - {{song.title}}
-  </li>
-</ol>
+  <md-list layout="column">
+    <md-virtual-repeat-container style="height: 250px">
+  <md-list-item md-virtual-repeat="song in songs.songList">
+    <p>{{song.artist}} - {{song.title}}</p>
+
+    </md-list-item>
+  </md-virtual-repeat-container>
+</md-list>
 
   <h4>Add a new Song</h4>
   <song-upload></song-upload>
