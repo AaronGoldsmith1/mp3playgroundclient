@@ -14,9 +14,9 @@
 <button ng-click="$ctrl.toggleMute()">Mute</button>
 <button ng-click="$ctrl.skipForward()">>></button>
 <button ng-click="$ctrl.nextSong()">Next</button>
-<h4>Songs!</h4>
+<h4>songs!</h4>
 
-<div ng-show="songs.length == 0"> Playlist Empty! </div>
-<ol ng-show="songs.length">
-  <li ng-repeat="song in songs">{{ song.title }} - {{ song.artist }} <button ng-click="$ctrl.playSong(song)">Play</button></li>
+<div ng-show="$ctrl.songs.length == 0"> Playlist Empty! </div>
+<ol ng-show="$ctrl.songs.length">
+  <li ng-repeat="song in $ctrl.songs track by $index">{{ song.title }} - {{ song.artist }} <button ng-click="$ctrl.playSong(song)">Play</button><button ng-click="$ctrl.removeSongFromPlaylist(song)">X</button></li>
 </ol>

@@ -1,6 +1,10 @@
 <div ng-controller="playlistsController as playlists">
   <ul>
-    <li ng-repeat="playlist in playlists.playlists">{{ playlist.title}} - <small>{{playlist.description}}</small> <a ui-sref="playlist({ id : playlist._id})">View</a></li>
+    <li ng-repeat="playlist in playlists.playlists">
+      {{ playlist.title}} - <small>{{playlist.description}}</small>
+      <a ui-sref="playlist({ id : playlist._id})">View</a>
+      <button ng-click="playlists.deletePlaylist(playlist)">Delete</button>
+    </li>
   </ul>
   <playlist-form></playlist-form>
 </div>

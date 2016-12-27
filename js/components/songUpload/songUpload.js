@@ -54,6 +54,7 @@ function songUpload($http, SongsRepo, $element, AudioParser){
           //document.getElementById('avatar-url').value = url;
         }
         else{
+          debugger
           alert('Could not upload file.');
         }
       }

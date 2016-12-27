@@ -4,17 +4,17 @@ angular.module('Mp3Playground')
     controller: playlistPlayer,
     require: 'ngModel',
     bindings: {
+      onRemoveSong: '&',
       songs: '='
     }
   });
 
-playlistPlayer.$inject = ['$http', '$element', '$scope', '$q']
+playlistPlayer.$inject = ['$http', '$element', '$q', '$scope']
 
-function playlistPlayer($http, $element, $scope, $q){
+function playlistPlayer($http, $element, $q, $scope){
 
 
   var ctrl = this;
-  $scope.songs = ctrl.songs;
   ctrl.currentSong = null;
   var $container = $element.find('div')[0];
   var wavesurfer = WaveSurfer.create({
@@ -60,28 +60,29 @@ function playlistPlayer($http, $element, $scope, $q){
     ctrl.currentSong = null;
   }
 
+
   ctrl.nextSong = function(){
-    currentSongIndex = _.indexOf($scope.songs, ctrl.currentSong); // returns -1 if not found
+    currentSongIndex = _.indexOf(ctrl.songs, ctrl.currentSong); // returns -1 if not found
     if (currentSongIndex < 0){
       // No song is playing, do nothing
       return
     }
     targetSongIndex = currentSongIndex + 1;
-    if (targetSongIndex < $scope.songs.length) {
-      ctrl.playSong($scope.songs[targetSongIndex])
+    if (targetSongIndex < ctrl.songs.length) {
+      ctrl.playSong(ctrl.songs[targetSongIndex])
     } else {
       ctrl.clearSong()
     }
   }
 
   ctrl.prevSong = function(){
-    currentSongIndex = _.indexOf($scope.songs, ctrl.currentSong)
+    currentSongIndex = _.indexOf(ctrl.songs, ctrl.currentSong)
       if (currentSongIndex < 0){
         return
       }
       targetSongIndex = currentSongIndex - 1
       if (targetSongIndex >= 0){
-        ctrl.playSong($scope.songs[targetSongIndex])
+        ctrl.playSong(ctrl.songs[targetSongIndex])
       } else {
         ctrl.clearSong()
       }
@@ -106,6 +107,10 @@ function playlistPlayer($http, $element, $scope, $q){
     });
   }
 
+  ctrl.removeSongFromPlaylist = function(song){
+    ctrl.onRemoveSong()(song);
+  }
+
   ctrl.load = function(song){
     ctrl.currentSong = null;
     var deferred = $q.defer();
@@ -122,10 +127,10 @@ function playlistPlayer($http, $element, $scope, $q){
   }
   ctrl.init = function(){
     ctrl.initListeners()
-    if ($scope.songs.length) {
-      ctrl.load($scope.songs[0]).then(function(song){
-        console.log("song loaded!", song);
-      });
+    if (ctrl.songs.length) {
+      // ctrl.load(ctrl.songs[0]).then(function(song){
+      //   console.log("song loaded!", song);
+      // });
     }
   }
   ctrl.init();
