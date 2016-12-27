@@ -1,8 +1,10 @@
 <div class="wavesurfer-container"></div>
 
 <div></div>
+<div ng-show="$ctrl.currentSong">
 <div> {{$ctrl.progress}} </div>
 <div>{{$ctrl.currentSong.artist}} - {{$ctrl.currentSong.title}} - {{$ctrl.currentSong.duration}}</div>
+</div>
 
 
 <button ng-click="$ctrl.prevSong()">Prev</button>
@@ -14,7 +16,7 @@
 <button ng-click="$ctrl.nextSong()">Next</button>
 <h4>Songs!</h4>
 
-
-<ol>
-  <li ng-repeat="song in $ctrl.songs">{{ song.title }} - {{ song.artist }} <button ng-click="$ctrl.playSong(song)">Play</button></li>
+<div ng-show="songs.length == 0"> Playlist Empty! </div>
+<ol ng-show="songs.length">
+  <li ng-repeat="song in songs">{{ song.title }} - {{ song.artist }} <button ng-click="$ctrl.playSong(song)">Play</button></li>
 </ol>

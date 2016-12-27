@@ -6,15 +6,14 @@ angular.module('Mp3Playground')
     bindings: {}
   });
 
-playlistForm.$inject = ['$http', 'PlaylistsRepo', '$element', 'playlistsCollection']
+playlistForm.$inject = ['$http', 'PlaylistsRepo', '$element']
 
-function playlistForm($http, PlaylistsRepo, $element, playlistsCollection){
+function playlistForm($http, PlaylistsRepo, $element){
   var ctrl = this;
 
 
   ctrl.createPlaylist = function(){
     PlaylistsRepo.create(ctrl.playlist).then(function(res){
-      playlistsCollection.addPlaylist(res.data);
       console.log(res.data)
     })
   }

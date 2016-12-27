@@ -21,6 +21,15 @@ function songsController($http, SongsRepo, tokenService){
       self.songList = res.data;
     });
   };
+    //referencing self instead of ctrl
+  self.deleteSong = function(song){
+    SongsRepo.destroy(song._id).then(function(res){
+      var songToDelete = _.indexOf(self.songList, song)
+      if (songToDelete > -1) {
+        self.songList.splice(1, songToDelete)
+      }
+    })
+  }
 
   getAllSongs();
 

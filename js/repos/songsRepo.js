@@ -19,6 +19,7 @@ angular.module('Mp3Playground')
         'update': function(songId, data){
           return $http.put(baseUrl + songId, data)
         },
+        //remove song from database
         'destroy': function(songId){
           return $http.delete(baseUrl + songId)
 
