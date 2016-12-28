@@ -9,9 +9,9 @@ angular.module('Mp3Playground')
     }
   });
 
-playlistPlayer.$inject = ['$http', '$element', '$q', '$scope']
+playlistPlayer.$inject = ['$http', '$element', '$q', '$scope', 'LastfmRepo']
 
-function playlistPlayer($http, $element, $q, $scope){
+function playlistPlayer($http, $element, $q, $scope, lastfmRepo){
 
 
   var ctrl = this;
@@ -28,6 +28,9 @@ function playlistPlayer($http, $element, $q, $scope){
       wavesurfer.seekTo(0)
       wavesurfer.play()
     } else {
+      lastfmRepo.getSimilar(song.artist, song.title).then(function(res){
+        ctrl.similarTracks = res.data.similartracks.track
+      })
       ctrl.load(song)
           .then(function(song){
             wavesurfer.play()
@@ -146,4 +149,16 @@ function playlistPlayer($http, $element, $q, $scope){
     return pad(hours)+":"+pad(minutes)+":"+pad(secs);
   }
 
+  ctrl.setOrderProperty = function(property){
+    //debugger
+    if (_.endsWith(ctrl.orderProperty, property)){
+      if (ctrl.orderProperty.charAt(0) == '-'){
+        ctrl.orderProperty = _.trimStart(ctrl.orderProperty, '-');
+      }else{
+        ctrl.orderProperty = '-' + property
+      }
+    } else {
+      ctrl.orderProperty = property
+    }
+  }
 }

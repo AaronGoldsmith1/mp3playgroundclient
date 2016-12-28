@@ -17,6 +17,25 @@
 <h4>songs!</h4>
 
 <div ng-show="$ctrl.songs.length == 0"> Playlist Empty! </div>
+
+<div><button ng-click="$ctrl.setOrderProperty('title')">title</button>
+  <button ng-click="$ctrl.setOrderProperty('artist')">artist</button>
+  <button ng-click="$ctrl.setOrderProperty('duration')">duration</button>
+  {{ $ctrl.orderProperty }}
+</div>
 <ol ng-show="$ctrl.songs.length">
-  <li ng-repeat="song in $ctrl.songs track by $index">{{ song.title }} - {{ song.artist }} <button ng-click="$ctrl.playSong(song)">Play</button><button ng-click="$ctrl.removeSongFromPlaylist(song)">X</button></li>
+  <li ng-repeat="song in $ctrl.songs | orderBy: $ctrl.orderProperty track by $index ">{{ song.title }} - {{ song.artist }} - {{ song.duration | secondsToMinutes }} <button ng-click="$ctrl.playSong(song)">Play</button><button ng-click="$ctrl.removeSongFromPlaylist(song)">X</button></li>
 </ol>
+
+
+<div>
+<h2>Similar Tracks</h2>
+
+<<ol>
+  <li ng-repeat="track in $ctrl.similarTracks">
+    {{track.artist.name}} - {{track.name}}
+  </li>
+</ol>
+
+
+</div>
