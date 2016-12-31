@@ -1,11 +1,10 @@
-<md-nav-bar>
+
 <header>
- <nav class="navbar navbar-default navbar-fixed-top">
+ <md-nav-bar class="navbar navbar-default navbar-fixed-top">
    <div class="container">
-     <a ui-sref="welcome" class="navbar-brand">Home</a>
-       <button ng-hide="$ctrl.authService.isLoggedIn()" ui-sref="signin" type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
-       <button ng-show="$ctrl.authService.isLoggedIn()" ng-click= "$ctrl.authService.logOut()" type="button" class="btn btn-default navbar-btn navbar-right">Sign out</button>
+     <a ui-sref="welcome" class="navbar-brand">Mp3 Playground</a>
+       <md-button ng-hide="$ctrl.authService.isLoggedIn()" ui-sref="signin" type="button" class="btn btn-default navbar-btn navbar-right">Sign in</md-button>
+       <md-button ng-show="$ctrl.authService.isLoggedIn()" ng-click= "$ctrl.authService.logOut()" type="button" class="btn btn-default navbar-btn navbar-right">Sign out</md-button>
    </div>
- </nav>
+ </md-nav-bar>
 </header>
-</md-nav-bar>

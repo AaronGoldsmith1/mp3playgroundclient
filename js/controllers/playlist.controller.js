@@ -12,7 +12,7 @@ function playlistController(PlaylistsRepo, $stateParams){
       self.playlist.songs.splice(songToRemove, 1)
     })
   }
-
+  
   PlaylistsRepo.get($stateParams.id).then(function(res){
     self.playlist = res.data;
   });
