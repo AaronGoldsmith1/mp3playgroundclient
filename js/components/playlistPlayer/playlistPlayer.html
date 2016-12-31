@@ -16,7 +16,7 @@
 <button ng-click="$ctrl.playPause()">Play</button>
 <button ng-click="$ctrl.pause()">Pause</button>
 <button ng-click="$ctrl.toggleMute()">Mute</button>
-<button ng-click="$ctrl.skipForward()">>></button>
+<md-button type="button" ng-click="$ctrl.skipForward()"> <md-icon md-font-icon="zmdi zmdi-fast-forward"></md-icon></md-button>
 <button ng-click="$ctrl.nextSong()">Next</button>
 <h4>songs!</h4>
 
@@ -27,6 +27,8 @@
   <button ng-click="$ctrl.setOrderProperty('duration')">duration</button>
   {{ $ctrl.orderProperty }}
 </div>
+
+
 <ol ng-show="$ctrl.songs.length">
   <li ng-repeat="song in $ctrl.songs | orderBy: $ctrl.orderProperty track by $index ">{{ song.title }} - {{ song.artist }} - {{ song.duration | secondsToMinutes }} <button ng-click="$ctrl.playSong(song)">Play</button><button ng-click="$ctrl.removeSongFromPlaylist(song)">X</button></li>
 </ol>
