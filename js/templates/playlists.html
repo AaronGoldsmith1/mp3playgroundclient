@@ -12,11 +12,12 @@
     <md-list-item md-virtual-repeat="playlist in playlists.playlists">
       {{ playlist.title}} - <small>{{playlist.description}}</small>
       <a ui-sref="playlist({ id : playlist._id})">View</a>
-      <button ng-click="playlists.deletePlaylist(playlist)">Delete</button>
+      <md-button ng-click="playlists.deletePlaylist(playlist)">Delete</md-button>
       <md-divider></md-divider>
     </md-list-item>
     </md-virutal-repeat-container>
   </md-list>
-  <playlist-form></playlist-form>
+
 </md-card>
 </div>
+  <playlist-form></playlist-form>

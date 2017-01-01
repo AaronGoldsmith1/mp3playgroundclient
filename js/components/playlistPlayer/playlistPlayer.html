@@ -4,11 +4,15 @@
 <div class="wavesurfer-container"></div>
 </md-card>
 
+<md-toolbar class="md-toolbar-sm" style="color: #333333; background:
+none;">
 
 <div ng-show="$ctrl.currentSong">
 <div> {{$ctrl.progress}} </div>
 <div>{{$ctrl.currentSong.artist}} - {{$ctrl.currentSong.title}} - {{$ctrl.currentSong.duration}}</div>
 </div>
+</md-toolbar>
+
 
 <md-toolbar>
   <div class="md-toolbar-tools" layout="row">

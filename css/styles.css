@@ -35,8 +35,11 @@ md-card {
 }
 
 md-list .md-subheader {
-
-    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .01em;
+    line-height: 1.2em;
+    text-align: left;
 }
 
 .form-group {
