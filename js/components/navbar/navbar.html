@@ -4,7 +4,7 @@
    <div class="container">
      <a ui-sref="welcome" class="navbar-brand">Mp3 Playground</a>
        <md-button class="md-raised md-primary" ng-hide="$ctrl.authService.isLoggedIn()" ui-sref="signin" id="signinButton">Sign in</md-button>
-       <md-button ng-show="$ctrl.authService.isLoggedIn()" ng-click= "$ctrl.authService.logOut()" type="button" class="btn btn-default navbar-btn navbar-right">Sign out</md-button>
+       <md-button ng-show="$ctrl.authService.isLoggedIn()" ng-click= "$ctrl.authService.logOut()" class="md-raised md-warn">Sign out</md-button>
    </div>
  </md-nav-bar>
 </header>
