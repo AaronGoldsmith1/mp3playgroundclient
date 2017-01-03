@@ -26,10 +26,11 @@ function songsController($http, SongsRepo, tokenService){
     SongsRepo.destroy(song._id).then(function(res){
       var songToDelete = _.indexOf(self.songList, song)
       if (songToDelete > -1) {
-        self.songList.splice(1, songToDelete)
+        self.songList.splice(songToDelete, 1)
       }
     })
   }
+
 
   getAllSongs();
 

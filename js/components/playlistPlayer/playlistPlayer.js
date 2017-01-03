@@ -22,6 +22,9 @@ function playlistPlayer($http, $element, $q, $scope, lastfmRepo){
     height: 50
   });
 
+  ctrl.$onDestroy = function() {
+    wavesurfer.destroy()
+  }
 
   ctrl.playSong = function(song){
     if (ctrl.currentSong == song) {
@@ -44,6 +47,10 @@ function playlistPlayer($http, $element, $q, $scope, lastfmRepo){
 
   ctrl.skipBackward = function(){
     wavesurfer.skipBackward();
+  }
+
+  ctrl.isPlaying = function(){
+    return wavesurfer.isPlaying();
   }
 
   ctrl.skipForward = function() {

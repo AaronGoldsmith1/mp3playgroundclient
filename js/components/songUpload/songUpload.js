@@ -3,7 +3,9 @@ angular.module('Mp3Playground')
     templateUrl: 'js/components/songUpload/songUpload.html',
     controller: songUpload,
     require: 'ngModel',
-    bindings: {}
+    bindings: {
+      existingSongs: '='
+    }
   });
 
 songUpload.$inject = ['$http', 'SongsRepo', '$element', 'AudioParser']
@@ -48,7 +50,7 @@ function songUpload($http, SongsRepo, $element, AudioParser){
       if(xhr.readyState === 4){
         if(xhr.status === 200){
           ctrl.songsRepo.create(ctrl.song).then(function(res){
-            console.log(res.data);
+            ctrl.existingSongs.push(res.data)
           });
           //document.getElementById('preview').src = url;
           //document.getElementById('avatar-url').value = url;

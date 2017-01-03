@@ -1,4 +1,6 @@
 <div ng-controller="PlaylistController as playlistCtrl">
+  {{playlistCtrl.playlist.title}}
   <playlist-player on-remove-song="playlistCtrl.removeSongFromPlaylist" songs="playlistCtrl.playlist.songs" ng-if="playlistCtrl.playlist.songs"></playlist-player>
+
   <add-song-to-playlist-form ng-if="playlistCtrl.playlist" playlist="playlistCtrl.playlist"></add-song-to-playlist-form>
 </div>
