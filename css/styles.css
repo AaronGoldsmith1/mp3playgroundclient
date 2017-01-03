@@ -58,6 +58,10 @@ md-toolbar.md-toolbar-sm {
     min-width: 44px;
 }
 
+#signinCard {
+  display: table;
+   margin: 0 auto
+}
 
 #signinButton{
 
