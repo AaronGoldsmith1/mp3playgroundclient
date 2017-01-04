@@ -51,11 +51,13 @@ md-list .md-subheader {
     margin-top: 15px;
 }
 
+
+
 md-toolbar.md-toolbar-sm {
     min-height: 24px;
 }
-.md-player-controls .md-button {
-    min-width: 44px;
+.smallbutton {
+    min-width: 49px;
 }
 
 #signinCard {
