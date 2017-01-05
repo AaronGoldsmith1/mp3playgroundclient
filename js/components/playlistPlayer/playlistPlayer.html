@@ -1,9 +1,9 @@
 
 
-<md-card flex="40">
-<md-card>
+<md-card flex="40" style="margin: 0 auto;">
+
 <div class="wavesurfer-container"></div>
-</md-card>
+
 
 <md-toolbar class="md-toolbar-sm" style="color: #333333; background:
 none;">
@@ -53,7 +53,7 @@ none;">
 <md-list ng-show="$ctrl.songs.length">
   <md-virtual-repeat-container style="height: 300px">
   <md-list-item  class="repeated-item" flex="" ng-repeat="song in $ctrl.songs | orderBy: $ctrl.orderProperty track by $index ">
-  
+
     <md-list-item class="zt" flex="25">{{ song.title }}</md-list-item>
     <md-list-item class="zt" flex="25">{{ song.artist }}</md-list-item>
     <md-list-item class="zt" flex="25">{{ song.duration | secondsToMinutes }}</md-list-item>
