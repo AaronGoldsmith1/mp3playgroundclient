@@ -1,6 +1,4 @@
-<div ng-controller="PlaylistController as playlistCtrl">
-  {{playlistCtrl.playlist.title}}
-  <playlist-player on-remove-song="playlistCtrl.removeSongFromPlaylist" songs="playlistCtrl.playlist.songs" ng-if="playlistCtrl.playlist.songs"></playlist-player>
-
-  <add-song-to-playlist-form ng-if="playlistCtrl.playlist" playlist="playlistCtrl.playlist"></add-song-to-playlist-form>
+<div layout ng-controller="PlaylistController as playlistCtrl">
+    <add-song-to-playlist-form flex ng-if="playlistCtrl.playlist" playlist="playlistCtrl.playlist"></add-song-to-playlist-form>
+    <playlist-player flex="70" layout on-remove-song="playlistCtrl.removeSongFromPlaylist" songs="playlistCtrl.playlist.songs" playlist-title="playlistCtrl.playlist.title" ng-if="playlistCtrl.playlist.songs"></playlist-player>
 </div>

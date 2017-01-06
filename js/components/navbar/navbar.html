@@ -1,17 +1,20 @@
 
 <header>
  <md-nav-bar class="navbar navbar-default navbar-fixed-top">
-   <div class="container">
-    
-     <a ui-sref="home" class="navbar-brand">Mp3 Playground</a>
+   <div class="container" style="width:100%">
+     
+       <a ui-sref="home" class="navbar-brand">Mp3 Playground</a>
 
-
-     <md-button ng-show="$ctrl.authService.isLoggedIn()" ui-sref="playlists">Playlists</md-button>
-     <md-button ng-show="$ctrl.authService.isLoggedIn()" ui-sref="songs">Songs</md-button>
+     
+     <div class="pull-right">
+       <md-button ng-show="$ctrl.authService.isLoggedIn()" ui-sref="playlists">Playlists</md-button>
+       <md-button ng-show="$ctrl.authService.isLoggedIn()" ui-sref="songs">Songs</md-button>
        <md-button class="md-raised md-primary" ng-hide="$ctrl.authService.isLoggedIn()" ui-sref="signin" id="signinButton">Sign in</md-button>
        <md-button ng-show="$ctrl.authService.isLoggedIn()" ng-click= "$ctrl.authService.logOut()" class="md-raised md-warn">Sign out</md-button>
 
-
+     </div>
    </div>
+
+
  </md-nav-bar>
 </header>

@@ -13,10 +13,28 @@ songUpload.$inject = ['$http', 'SongsRepo', '$element', 'AudioParser']
 function songUpload($http, SongsRepo, $element, AudioParser){
   var ctrl = this;
   ctrl.songsRepo = SongsRepo;
+  ctrl.fileName = '';
 
-  ctrl.onFileInputChanged = function(){
-    console.log("onFileInputChanged", arguments);
-    var $input = $element.find('input')[2];
+  var input = document.getElementById('song-file-picker')
+  var fileNameSpan = document.getElementById('status')
+
+  input.addEventListener('change', function(){
+    var str = input.value;
+    var i;
+    if (str.lastIndexOf('\\')) {
+      i = str.lastIndexOf('\\') + 1;
+    } else if (str.lastIndexOf('/')) {
+      i = str.lastIndexOf('/') + 1;
+    }
+
+    ctrl.fileName = str.slice(i, str.length);
+    console.log(ctrl.fileName);
+    fileNameSpan.innerText = ctrl.fileName;
+  })
+
+  ctrl.uploadSongButtonClicked = function(){
+    console.log("uploadSongButtonClicked", arguments);
+    var $input = $element.find('input')[0];
     var file = $input.files[0];
     if(file == null){
       return alert('No file selected.');

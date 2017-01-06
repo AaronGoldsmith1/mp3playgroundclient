@@ -5,6 +5,7 @@ angular.module('Mp3Playground')
     require: 'ngModel',
     bindings: {
       onRemoveSong: '&',
+      playlistTitle: '=',
       songs: '='
     }
   });
@@ -16,9 +17,9 @@ function playlistPlayer($http, $element, $q, $scope, lastfmRepo){
 
   var ctrl = this;
   ctrl.currentSong = null;
-  var $container = $element.find('div')[0];
+
   var wavesurfer = WaveSurfer.create({
-    container: $container,
+    container: "#wavesurfer-container",
     height: 50
   });
 

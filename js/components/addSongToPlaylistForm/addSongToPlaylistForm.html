@@ -1,18 +1,15 @@
-
-
-  <md-card flex=30>
-    <md-toolbar class="md-toolbar-sm">
-      <div class="text-center" class="md-toolbar-tools">
-        <h2 style="font-size: 24px;">Add Song To Playlist</h2>
-      </div>
-      </md-toolbar>
-
-
-<md-list layout="column">
-  <md-virtual-repeat-container style="height: 250px">
-  <md-list-item md-virtual-repeat="song in $ctrl.songs" ng-click="$ctrl.addSongToPlaylist(song)"> {{song.title}} - {{song.artist}}<md-icon md-font-icon="zmdi zmdi-plus-circle"></md-icon>
-<md-divider></md-divider>
-</md-list-item>
-</md-virtual-repeat-container>
-</md-list>
+<md-card>
+  <md-toolbar class="md-toolbar-sm">
+    <div class="text-center" class="md-toolbar-tools">
+      <h2 style="font-size: 24px;">Add Song To Playlist</h2>
+    </div>
+  </md-toolbar>
+  <md-list layout="column">
+    <md-virtual-repeat-container style="height: 250px">
+      <md-list-item md-virtual-repeat="song in $ctrl.songs" ng-click="$ctrl.addSongToPlaylist(song)">
+        {{song.title}} - {{song.artist}}<md-icon md-font-icon="zmdi zmdi-plus-circle"></md-icon>
+        <md-divider></md-divider>
+      </md-list-item>
+    </md-virtual-repeat-container>
+  </md-list>
 </md-card>

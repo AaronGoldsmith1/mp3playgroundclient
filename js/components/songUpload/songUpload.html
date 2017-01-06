@@ -6,25 +6,26 @@
   </div>
 </md-toolbar>
 
-<input type="text" placeholder="Title" ng-model="$ctrl.song.title"><br>
-<input type="text" placeholder="Artist" ng-model="$ctrl.song.artist"><br>
 
 
-<div class="song-search">
-<label for="song-file-picker">
-    <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
-  </label>
 
-<md-button type="button" style="min-width: 49px">
 
-      <input id="song-file-picker" type="file">
 
-    </md-button>
-</div>
+
 <!-- <input type="file" id="song-file-picker"> -->
 
+<div class="song-upload input-field inline">
+  <label for="song-file-picker" class="md-button md-ink-ripple">
+      <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+    <input class="" id="song-file-picker" type="file">
+  </label>
+  <span id="song-file-name"></span>
 
-<md-button type="button" style="min-width: 49px" ng-click="$ctrl.onFileInputChanged()"><md-icon md-font-icon="zmdi zmdi-upload"></md-icon></md-button>
+  <md-button type="button" style="min-width: 49px" ng-click="$ctrl.uploadSongButtonClicked()">
+    <md-icon md-font-icon="zmdi zmdi-upload"></md-icon>
+  </md-button>
+</div>
+
 <p id="status">Please select a file</p>
 
 
