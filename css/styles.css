@@ -1,3 +1,13 @@
+body {
+  background-image: url("/images/29.jpg");
+  background-size: cover;
+
+}
+
+.song-search {
+  display: none;
+}
+
 .text-center {
     text-align: center !important;
 }

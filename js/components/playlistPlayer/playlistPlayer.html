@@ -52,12 +52,17 @@ none;">
 
 <md-list ng-show="$ctrl.songs.length">
   <md-virtual-repeat-container style="height: 300px">
+
+
   <md-list-item  class="repeated-item" flex="" ng-repeat="song in $ctrl.songs | orderBy: $ctrl.orderProperty track by $index ">
 
     <md-list-item class="zt" flex="25">{{ song.title }}</md-list-item>
     <md-list-item class="zt" flex="25">{{ song.artist }}</md-list-item>
     <md-list-item class="zt" flex="25">{{ song.duration | secondsToMinutes }}</md-list-item>
-      <button ng-click="$ctrl.playSong(song)">Play</button><button ng-click="$ctrl.removeSongFromPlaylist(song)">X</button>
+
+      <md-button type="button" style="min-width: 49px" ng-click="$ctrl.playSong(song)"><md-icon md-font-icon="zmdi zmdi-play"></md-icon></md-button>
+
+      <md-button type="button" style="min-width: 49px" ng-click="$ctrl.removeSongFromPlaylist(song)"><md-icon md-font-icon="zmdi zmdi-delete"></md-icon></md-button>
 
     <md-divider flex></md-divider>
   </md-list-item>

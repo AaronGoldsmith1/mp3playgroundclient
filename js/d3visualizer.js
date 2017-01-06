@@ -1,17 +1,27 @@
 $(document).ready(function () {
 
+  //represents an audio-processing graph built from audio modules linked together, each represented by an AudioNode, need to create an AudioContext before you do anything else, as everything happens inside a context.
   var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+  //tagert the audio source to be visualized
   var audioElement = document.getElementById('audioElement');
+
+  // Create a MediaElementAudioSourceNode associated with an HTMLMediaElement. This can be used to play and manipulate audio from <video> or <audio> elements.
   var audioSrc = audioCtx.createMediaElementSource(audioElement);
+
+  //Create an AnalyserNode, which can be used to expose audio time and frequency data and for example to create data visualisations.
   var analyser = audioCtx.createAnalyser();
 
   // Bind our analyser to the media element source.
   audioSrc.connect(analyser);
+
+  //return an AudioDestinationNode representing the final destination of all audio in the context. It often represents an actual audio-rendering device such as your device's speakers.
   audioSrc.connect(audioCtx.destination);
 
-  //var frequencyData = new Uint8Array(analyser.frequencyBinCount);
+
   var frequencyData = new Uint8Array(200);
 
+  //defining dimensions of visualizer
   var svgHeight = '300';
   var svgWidth = '1200';
   var barPadding = '1';

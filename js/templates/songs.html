@@ -10,7 +10,9 @@
   <md-list layout="column">
     <md-virtual-repeat-container style="height: 250px">
   <md-list-item md-virtual-repeat="song in songs.songList">
-    {{song.artist}} - {{song.title}} <span class="pull-right"><md-button ng-click="songs.deleteSong(song)">Delete</md-button></span>
+    {{song.artist}} - {{song.title}} <span style="pull-right">
+
+      <md-button type="button" style="min-width: 49px" ng-click="songs.deleteSong(song)"><md-icon md-font-icon="zmdi zmdi-delete"></md-icon></md-button></span>
       <md-divider></md-divider>
     </md-list-item>
   </md-virtual-repeat-container>
