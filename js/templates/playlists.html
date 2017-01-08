@@ -10,8 +10,9 @@
   <md-list layout="column">
     <md-virtual-repeat-container style="height: 250px">
     <md-list-item md-virtual-repeat="playlist in playlists.playlists">
-      <md-icon md-font-icon="zmdi zmdi-playlist-audio"></md-icon>
-    <a ui-sref="playlist({ id : playlist._id})">  {{ playlist.title}} - <small>{{playlist.description}}</small>
+      <md-icon md-font-icon="zmdi zmdi-playlist-audio" style="float: left"></md-icon>
+    <a ui-sref="playlist({ id : playlist._id})">
+      {{ playlist.title}} - <small>{{playlist.description}}</small>
       </a>
       <md-button  type="button" style="min-width: 49px" ng-click="playlists.deletePlaylist(playlist)"><md-icon md-font-icon="zmdi zmdi-delete"></md-icon></md-button>
       <md-divider></md-divider>

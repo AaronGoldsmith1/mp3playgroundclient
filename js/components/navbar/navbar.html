@@ -2,10 +2,11 @@
 <header>
  <md-nav-bar class="navbar navbar-default navbar-fixed-top">
    <div class="container" style="width:100%">
-     
-       <a ui-sref="home" class="navbar-brand">Mp3 Playground</a>
 
-     
+      <md-button>
+       <a ui-sref="home" class="navbar-brand"><i class="zmdi zmdi-playlist-plus"></i> MP3 Playground</a></md-button>
+
+
      <div class="pull-right">
        <md-button ng-show="$ctrl.authService.isLoggedIn()" ui-sref="playlists">Playlists</md-button>
        <md-button ng-show="$ctrl.authService.isLoggedIn()" ui-sref="songs">Songs</md-button>
