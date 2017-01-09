@@ -1,26 +1,32 @@
 <div ng-controller="playlistsController as playlists">
 
-  <md-card style="width: 50%">
-  <md-toolbar class="md-toolbar-sm">
+  <md-card style="width: 50%; margin: 0 auto">
+  <md-toolbar flex class="md-toolbar-sm">
     <div class="text-center" class="md-toolbar-tools">
       <h2 style="font-size: 24px;">Playlists</h1>
     </div>
   </md-toolbar>
 
-  <md-list layout="column">
-    <md-virtual-repeat-container style="height: 250px">
+<md-list layout="column">
+  <md-virtual-repeat-container style="height: 250px">
 
-    <md-list-item md-virtual-repeat="playlist in playlists.playlists">
-      <md-icon md-font-icon="zmdi zmdi-playlist-audio" style="float: left"></md-icon>
-    <a ui-sref="playlist({ id : playlist._id})">
+    <md-list-item style="display: list-item; padding-left: 15px" md-virtual-repeat="playlist in playlists.playlists">
+
+      <md-icon md-font-icon="zmdi zmdi-playlist-audio" ></md-icon>
+      <a ui-sref="playlist({ id : playlist._id})">
       {{ playlist.title}} - <small>{{playlist.description}}</small>
       </a>
-      <md-button  type="button" style="min-width: 49px" ng-click="playlists.deletePlaylist(playlist)"><md-icon md-font-icon="zmdi zmdi-delete"></md-icon></md-button>
+
+      <md-button  type="button" style="min-width: 49px" ng-click="playlists.deletePlaylist(playlist)">
+        <md-icon md-font-icon="zmdi zmdi-delete"></md-icon>
+      </md-button>
+
       <md-divider></md-divider>
+
     </md-list-item>
+
     </md-virutal-repeat-container>
   </md-list>
-
+  <playlist-form style="text-align: center" existing-playlists="playlists.playlists"></playlist-form>
+  </div>
 </md-card>
-<playlist-form existing-playlists="playlists.playlists"></playlist-form>
-</div>

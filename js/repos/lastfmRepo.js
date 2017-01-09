@@ -16,7 +16,7 @@ function LastfmRepo($http, LASTFM_API_KEY){
         api_key: LASTFM_API_KEY,
         artist: artist,
         track: track,
-        limit: 4
+        limit: 10
       }})
 
     }
