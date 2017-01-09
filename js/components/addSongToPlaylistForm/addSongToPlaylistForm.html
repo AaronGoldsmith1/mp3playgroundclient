@@ -5,7 +5,7 @@
     </div>
   </md-toolbar>
   <md-list layout="column">
-    <md-virtual-repeat-container style="height: 250px">
+    <md-virtual-repeat-container style="height: 500px">
       <md-list-item md-virtual-repeat="song in $ctrl.songs" ng-click="$ctrl.addSongToPlaylist(song)">
         {{song.title}} - {{song.artist}}<md-icon md-font-icon="zmdi zmdi-plus-circle"></md-icon>
         <md-divider></md-divider>

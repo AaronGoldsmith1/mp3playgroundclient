@@ -7,6 +7,7 @@
     </div>
   </md-toolbar>
   <div id="wavesurfer-container"></div>
+  <md-divider flex></md-divider>
   <md-toolbar class="md-toolbar-sm" style="color: #333333; background:none;">
     <div>
       <div> {{$ctrl.progress}} </div>
@@ -14,8 +15,9 @@
     </div>
   </md-toolbar>
 
-  <md-toolbar>
+  <md-toolbar layout>
     <div class="md-toolbar-tools" layout="row">
+      <div class="media-controls">
       <md-button type="button" style="min-width: 49px" ng-click="$ctrl.prevSong()">
         <md-icon md-font-icon="zmdi zmdi-skip-previous"></md-icon>
       </md-button>
@@ -43,6 +45,7 @@
       <md-button type="button" style="min-width: 49px" ng-click="$ctrl.toggleMute()">
         <md-icon md-font-icon="zmdi zmdi-volume-off"></md-icon>
       </md-button>
+    </div>
     </div>
   </md-toolbar>
 

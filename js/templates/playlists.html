@@ -1,6 +1,6 @@
 <div ng-controller="playlistsController as playlists">
 
-  <md-card>
+  <md-card style="width: 50%">
   <md-toolbar class="md-toolbar-sm">
     <div class="text-center" class="md-toolbar-tools">
       <h2 style="font-size: 24px;">Playlists</h1>
@@ -9,6 +9,7 @@
 
   <md-list layout="column">
     <md-virtual-repeat-container style="height: 250px">
+
     <md-list-item md-virtual-repeat="playlist in playlists.playlists">
       <md-icon md-font-icon="zmdi zmdi-playlist-audio" style="float: left"></md-icon>
     <a ui-sref="playlist({ id : playlist._id})">
