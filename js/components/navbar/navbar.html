@@ -1,13 +1,16 @@
 
 <header>
-  <md-button>
-    <a ui-sref="home" class="navbar-brand"><i class="zmdi zmdi-playlist-plus"></i> MP3 Playground</a></md-button>
- <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links"class="navbar navbar-default navbar-fixed-top pull-right">
 
 
 
-       <md-nav-item ng-show="$ctrl.authService.isLoggedIn()" md-nav-sref="playlists">Playlists</md-nav-item>
-       <md-nav-item ng-show="$ctrl.authService.isLoggedIn()" md-nav-sref="songs">Songs</md-nav-item>
+ <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links"class="navbar navbar-default navbar-fixed-top">
+   <md-button class="pull-left">
+     <a ui-sref="home" class="navbar-brand"><i class="zmdi zmdi-playlist-plus"></i> MP3 Playground</a></md-button>
+
+<span flex></span>
+
+       <md-nav-item style="color: white" ng-show="$ctrl.authService.isLoggedIn()" md-nav-sref="playlists">Playlists</md-nav-item>
+       <md-nav-item style="color: white" ng-show="$ctrl.authService.isLoggedIn()" md-nav-sref="songs">Songs</md-nav-item>
        <md-button class="md-raised md-primary" ng-hide="$ctrl.authService.isLoggedIn()" ui-sref="signin" id="signinButton">Sign in</md-button>
        <md-button ng-show="$ctrl.authService.isLoggedIn()" ng-click= "$ctrl.authService.logOut()" class="md-raised md-warn">Sign out</md-button>
 

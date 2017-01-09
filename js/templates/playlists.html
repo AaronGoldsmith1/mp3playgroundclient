@@ -1,6 +1,6 @@
 <div ng-controller="playlistsController as playlists">
-
-  <md-card style="width: 50%; margin: 0 auto">
+<div style="margin-top: 10px">
+  <md-card style="width: 50%; margin: 0 auto;">
   <md-toolbar flex class="md-toolbar-sm">
     <div class="text-center" class="md-toolbar-tools">
       <h2 style="font-size: 24px;">Playlists</h1>
@@ -10,16 +10,18 @@
 <md-list layout="column">
   <md-virtual-repeat-container style="height: 250px">
 
-    <md-list-item style="display: list-item; padding-left: 15px" md-virtual-repeat="playlist in playlists.playlists">
+    <md-list-item layout-align="center center" style="display: list-item; padding-left: 15px; padding-bottom:15px; font-size: 20px" md-virtual-repeat="playlist in playlists.playlists">
 
       <md-icon md-font-icon="zmdi zmdi-playlist-audio" ></md-icon>
-      <a ui-sref="playlist({ id : playlist._id})">
+      <md-button><a style="text-decoration: none; color: inherit" ui-sref="playlist({ id : playlist._id})">
       {{ playlist.title}} - <small>{{playlist.description}}</small>
       </a>
-
+      </md-button>
+      <div style="float:right; padding-top: 20px">
       <md-button  type="button" style="min-width: 49px" ng-click="playlists.deletePlaylist(playlist)">
         <md-icon md-font-icon="zmdi zmdi-delete"></md-icon>
       </md-button>
+    </div>
 
       <md-divider></md-divider>
 
@@ -29,4 +31,5 @@
   </md-list>
   <playlist-form style="text-align: center" existing-playlists="playlists.playlists"></playlist-form>
   </div>
+</div>
 </md-card>

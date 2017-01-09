@@ -1,6 +1,6 @@
 <div ng-controller="songsController as songs">
 
-
+<div style="margin-top: 10px">
   <md-card style="width: 50%; margin: 0 auto;">
   <md-toolbar class="md-toolbar-sm">
     <div class="text-center" class="md-toolbar-tools">
@@ -11,10 +11,14 @@
   <md-list layout="column">
     <md-virtual-repeat-container style="height: 250px">
   <md-list-item md-virtual-repeat="song in songs.songList" style="padding-left:15px">
-    {{song.artist}} - {{song.title}} <span style="pull-right">
+    {{song.artist}} - {{song.title}}
 
-      <md-button type="button" style="min-width: 49px" ng-click="songs.deleteSong(song)"><md-icon md-font-icon="zmdi zmdi-delete"></md-icon></md-button></span>
+
+<span flex></span>
+      <md-button type="button" style="min-width: 49px" ng-click="songs.deleteSong(song)"><md-icon md-font-icon="zmdi zmdi-delete"></md-icon></md-button>
+
       <md-divider></md-divider>
+
     </md-list-item>
   </md-virtual-repeat-container>
 </md-list>
@@ -22,5 +26,5 @@
 
   <song-upload existing-songs="songs.songList"></song-upload>
 </md-card>
-
+</div>
 </div>

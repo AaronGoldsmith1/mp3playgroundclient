@@ -88,10 +88,11 @@
   </md-toolbar>
 
   <md-list>
-    <md-virtual-repeat-container style="height: 250px">
+    <md-virtual-repeat-container style="height: 500px">
       <md-list-item md-virtual-repeat="track in $ctrl.similarTracks">
 
-        <img ng-src="{{track.image[1]['#text']}}"><a target="_blank" href="{{track.url}}"> {{track.artist.name}} - {{track.name}}</a>
+        <img ng-src="{{track.image[1]['#text']}}">
+        <a style="color: inherit" target="_blank" href="{{track.url}}"> {{track.artist.name}} - {{track.name}}</a>
         <md-divider></md-divider>
       </md-list-item>
     </md-virtual-repeat-container>

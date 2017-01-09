@@ -129,7 +129,7 @@ function playlistPlayer($http, $element, $q, $scope, lastfmRepo){
     wavesurfer.on('ready', function(){
       song.duration = moment().startOf('day')
           .seconds(wavesurfer.getDuration())
-          .format('H:mm:ss');
+          .format('mm:ss');
       ctrl.currentSong = song;
       deferred.resolve(song);
       wavesurfer.un('ready')
@@ -152,9 +152,9 @@ function playlistPlayer($http, $element, $q, $scope, lastfmRepo){
   function hhmmss(secs) {
     var minutes = Math.floor(secs / 60);
     secs = secs%60;
-    var hours = Math.floor(minutes/60)
+
     minutes = minutes%60;
-    return pad(hours)+":"+pad(minutes)+":"+pad(secs);
+    return pad(minutes)+":"+pad(secs);
   }
 
   ctrl.setOrderProperty = function(property){
