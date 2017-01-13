@@ -5,7 +5,7 @@ angular.module('Mp3Playground')
 LastfmRepo.inject = ['$http', 'LASTFM_API_KEY']
 
 function LastfmRepo($http, LASTFM_API_KEY){
-  var baseUrl = 'http://ws.audioscrobbler.com/2.0/'
+  var baseUrl = 'https://ws.audioscrobbler.com/2.0/'
 
   return {
     'getSimilar': function(artist, track){
