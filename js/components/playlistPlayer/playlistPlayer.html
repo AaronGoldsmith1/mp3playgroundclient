@@ -1,7 +1,100 @@
-<div class="wavesurfer-container"></div>
 
-<button ng-click="$ctrl.pause()">Pause</button><button ng-click="$ctrl.toggleMute()">Mute</button>
-<h4>Songs</h4>
-<ul>
-  <li ng-repeat="song in $ctrl.songs">{{ song.title }} - {{ song.artist }} <button ng-click="$ctrl.playSong(song)">Play</button></li>
-</ul>
+
+<md-card flex="70">
+  <md-toolbar class="md-toolbar-sm">
+    <div class="text-center" class="md-toolbar-tools">
+      <h2 style="font-size: 24px;">{{ $ctrl.playlistTitle }}</h2>
+    </div>
+  </md-toolbar>
+  <div id="wavesurfer-container"></div>
+  <md-divider flex></md-divider>
+  <md-toolbar class="md-toolbar-sm" style="color: #333333; background:none;">
+    <div>
+      <div> {{$ctrl.progress}} </div>
+      <div>{{$ctrl.currentSong.artist}} - {{$ctrl.currentSong.title}} - {{$ctrl.currentSong.duration}}</div>
+    </div>
+  </md-toolbar>
+
+  <md-toolbar layout>
+    <div class="md-toolbar-tools" layout="row">
+      <div class="media-controls">
+      <md-button type="button" style="min-width: 49px" ng-click="$ctrl.prevSong()">
+        <md-icon md-font-icon="zmdi zmdi-skip-previous"></md-icon>
+      </md-button>
+
+      <md-button type="button" style="min-width: 49px" ng-click="$ctrl.skipBackward()">
+        <md-icon md-font-icon="zmdi zmdi-fast-rewind"></md-icon>
+      </md-button>
+
+      <md-button ng-hide="$ctrl.isPlaying()" type="button" style="min-width: 49px"  ng-click="$ctrl.playPause()">
+        <md-icon md-font-icon="zmdi zmdi-play"></md-icon>
+      </md-button>
+
+      <md-button ng-show="$ctrl.isPlaying()" type="button" style="min-width: 49px"  ng-click="$ctrl.pause()">
+        <md-icon md-font-icon="zmdi zmdi-pause"></md-icon>
+      </md-button>
+
+      <md-button type="button" style="min-width: 49px" ng-click="$ctrl.skipForward()">
+        <md-icon md-font-icon="zmdi zmdi-fast-forward"></md-icon>
+      </md-button>
+
+      <md-button type="button" style="min-width: 49px" ng-click="$ctrl.nextSong()">
+        <md-icon md-font-icon="zmdi zmdi-skip-next"></md-icon>
+      </md-button>
+
+      <md-button type="button" style="min-width: 49px" ng-click="$ctrl.toggleMute()">
+        <md-icon md-font-icon="zmdi zmdi-volume-off"></md-icon>
+      </md-button>
+    </div>
+    </div>
+  </md-toolbar>
+
+
+  <md-content layout="column">
+    <md-list class="table-fixed-width md-whiteframe-z1">
+      <md-list-item class="zb" flex>
+
+        <md-subheader flex="25" ng-click="$ctrl.setOrderProperty('title')">Title</md-subheader>
+        <md-subheader flex="25" ng-click="$ctrl.setOrderProperty('artist')">Artist</md-subheader>
+        <md-subheader flex="25" ng-click="$ctrl.setOrderProperty('duration')">Length</md-subheader>
+      </md-list-item>
+      <md-divider></md-divider>
+      <md-list ng-show="$ctrl.songs.length">
+        <md-virtual-repeat-container style="height: 300px">
+          <md-list-item  class="repeated-item" flex="" ng-repeat="song in $ctrl.songs | orderBy: $ctrl.orderProperty track by $index ">
+
+            <md-list-item class="zt" flex="25">{{ song.title }}</md-list-item>
+            <md-list-item class="zt" flex="25">{{ song.artist }}</md-list-item>
+            <md-list-item class="zt" flex="25">{{ song.duration | secondsToMinutes }}</md-list-item>
+
+            <md-button type="button" style="min-width: 49px" ng-click="$ctrl.playSong(song)"><md-icon md-font-icon="zmdi zmdi-play"></md-icon></md-button>
+
+            <md-button type="button" style="min-width: 49px" ng-click="$ctrl.removeSongFromPlaylist(song)"><md-icon md-font-icon="zmdi zmdi-delete"></md-icon></md-button>
+
+            <md-divider flex></md-divider>
+        </md-list-item>
+      </md-list>
+    </md-virtual-repeat-container>
+  </md-content>
+  <div ng-show="$ctrl.songs.length == 0"> Playlist Empty! </div>
+</md-card>
+
+
+<md-card flex>
+  <md-toolbar class="md-toolbar-sm">
+    <div class="text-center" class="md-toolbar-tools">
+      <h2 style="font-size: 24px;">last.fm</h2>
+    </div>
+  </md-toolbar>
+
+  <md-list>
+    <md-virtual-repeat-container style="height: 500px">
+      <md-list-item md-virtual-repeat="track in $ctrl.similarTracks">
+
+        <img ng-src="{{track.image[1]['#text']}}">
+        <a style="color: inherit" target="_blank" href="{{track.url}}"> {{track.artist.name}} - {{track.name}}</a>
+        <md-divider></md-divider>
+      </md-list-item>
+    </md-virtual-repeat-container>
+  </md-list>
+</md-card>

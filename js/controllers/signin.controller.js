@@ -46,7 +46,7 @@
           // on success
           function(user) {
             $log.info('Logged in!', user);
-            $state.go('home');
+            $state.go('playlists');
           },
           // on error
           function(err) {

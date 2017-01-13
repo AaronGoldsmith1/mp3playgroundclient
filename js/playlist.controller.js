@@ -12,12 +12,6 @@ function PlaylistsController($http){
   self.getAllPlaylists = getAllPlaylists;
   self.getMyPlaylists = getMyPlaylists;
   self.deletePlaylist = deletePlaylist;
-  // self.addSongToPlaylist = addSongToPlaylist;
-  // self.removeSongFromPlaylist = removeSongFromPlaylist;
-  // self.deleteSong = deleteSong;
-
-  // getMyPlaylists();
-  // updatePlaylists();
 
   function getAllPlaylists(){
     $http

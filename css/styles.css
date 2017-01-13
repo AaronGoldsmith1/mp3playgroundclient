@@ -1,32 +1,93 @@
+body {
+    background-image: url("/images/29.jpg");
+    background-size: cover;
+    height: auto;
+}
+.media-controls {
+    flex: auto;
+}
+@font-face {
+    font-family: "NiseSega";
+    src: url("../fonts/Series-Sega/NiseSega.ttf");
+}
+ .song-search {
+    display: none;
+}
 .text-center {
     text-align: center !important;
 }
-
 .text-left {
-    text-align: left !important;;
+    text-align: left !important;
+    ;
 }
-
 .text-right {
-    text-align: right !important;;
+    text-align: right !important;
+    ;
 }
-
 .text-justify {
-    text-align: justify !important;;
+    text-align: justify !important;
+    ;
 }
-
 md-icon[md-font-icon] {
     font-size: 24px;
 }
-
 md-toolbar.md-toolbar-sm .md-toolbar-tools {
     max-height: 32px;
     padding: 6px;
     font-size: 16px;
 }
-
+md-toolbar {
+    text-align: center;
+}
+md-card {} md-list .md-subheader {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .01em;
+    line-height: 1.2em;
+    text-align: left;
+}
+.form-group {
+    /*text-align: center;*/
+}
+.md-headline {
+    text-align: center;
+    margin-top: 15px;
+}
+md-dialog md-dialog-content {
+    height: 180px;
+    width: 300px;
+}
+strong {
+    padding: 10px
+}
+.navbar-brand {
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+}
+md-nav-bar.md-default-theme .md-button._md-nav-button.md-unselected,
+md-nav-bar .md-button._md-nav-button.md-unselected {
+    color: white
+}
 md-toolbar.md-toolbar-sm {
     min-height: 24px;
 }
-.md-player-controls .md-button {
-    min-width: 44px;
+.smallbutton {
+    min-width: 49px;
+}
+#signinCard {
+    display: table;
+    margin: 0 auto
+}
+#song-file-picker {
+    display: none;
+}
+#signinButton {} #song-upload {
+    display: inline
+}
+#welcome-text {
+    text-align: center;
+    font-size: 100px;
+    position: inherit;
+    ;
 }

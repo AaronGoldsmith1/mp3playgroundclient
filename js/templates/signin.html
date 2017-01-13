@@ -1,19 +1,39 @@
 <div ng-controller="SignInController as vm">
-  <div class="sign-in-form" ng-hide="vm.toggleValue">
-    <h1>Sign In</h1>
+<div class="flexbox-parent">
 
+
+
+  <div layout="row" layout-align="center center"  style="min-height: 600px;">
+<md-card>
+<div class="sign-in-form" ng-hide="vm.toggleValue">
+  <md-toolbar class="md-hue-2">
+    <span class="md-headline">Sign In</span>
+  </md-toolbar>
+
+
+<md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
     <form ng-submit="vm.submitLogIn();" name="signInForm" novalidate>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input ng-model="vm.logIn.email" type="email" ng-model="email" name="email" required class="form-control" id="exampleInputEmail1" placeholder="Email">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input ng-model="vm.logIn.password" type="password" ng-model="password" name="password" required class="form-control" id="exampleInputPassword1" placeholder="Password">
-      </div>
-      <button type="submit" ng-disabled="signInForm.$invalid" class="btn btn-default">Submit</button>
-    </form>
 
+      <div class="form-group">
+        <md-input-container class="md-block" flex-gt-sm>
+        <label for="exampleInputEmail1">Email address</label>
+        <input ng-model="vm.logIn.email" type="email" ng-model="email" name="email" required md-no-asterisk  class="form-control" id="exampleInputEmail1" >
+      </md-input-container>
+      </div>
+
+
+      <div class="form-group">
+        <md-input-container class="md-block" flex-gt-sm>
+        <label for="exampleInputPassword1">Password</label>
+        <input ng-model="vm.logIn.password" type="password" ng-model="password" name="password" required md-no-asterisk class="form-control" id="exampleInputPassword1">
+      </md-input-container>
+      </div>
+
+      <md-button class="md-raised md-primary" type="submit" ng-disabled="signInForm.$invalid" class="btn btn-default">Submit</md-button>
+    </form>
+</md-card>
+
+</md-content>
     <p>
       <strong>
         If you are not a user yet,
@@ -22,29 +42,58 @@
     </p>
   </div> <!-- sign-in-form -->
 
-  <div class="sign-up-form" ng-show="vm.toggleValue">
-    <h1>Sign Up</h1>
 
+
+
+
+
+
+
+
+
+
+  <div class="sign-up-form" ng-show="vm.toggleValue">
+
+
+    <md-toolbar class="md-hue-2">
+      <span class="md-headline">Sign Up</span>
+    </md-toolbar>
+
+<md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
     <form ng-submit="vm.submitSignUp();">
       <div class="form-group">
+        <md-input-container>
         <label for="exampleInputEmail1">Email address</label>
-        <input ng-model="vm.signUp.email" type="email" ng-class="{'red-border': vm.conflict}" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        <input ng-model="vm.signUp.email" type="email" ng-class="{'red-border': vm.conflict}" class="form-control" id="exampleInputEmail1" >
         <small ng-show="vm.conflict" class="text-danger"><em>Email exists…</em></small>
+      </md-input-container>
       </div>
+
       <div class="form-group">
+        <md-input-container>
         <label for="exampleInputName">Name</label>
-        <input ng-model="vm.signUp.name" type="text" class="form-control" id="exampleInputName" placeholder="Name">
+        <input ng-model="vm.signUp.name" type="text" class="form-control" id="exampleInputName" >
+      </md-input-container>
       </div>
+
       <div class="form-group">
+        <md-input-container>
         <label for="exampleInputPassword1">Password</label>
-        <input ng-model="vm.signUp.password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <input ng-model="vm.signUp.password" type="password" class="form-control" id="exampleInputPassword1">
+      </md-input-container>
       </div>
+
       <div class="form-group">
+        <md-input-container>
         <label for="exampleInputPassword2">Password confirmation</label>
-        <input ng-model="vm.signUp.passwordConfirmation" type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+        <input ng-model="vm.signUp.passwordConfirmation" type="password" class="form-control" id="exampleInputPassword2">
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <md-button class="md-raised md-primary" type="submit" class="btn btn-default">Submit</md-button>
+    </md-input-container>
+
     </form>
+
+</md-content>
 
     <p>
       <strong>
@@ -53,9 +102,7 @@
       </strong>
     </p>
 
-    <p>
-      If you can't remember your password,
-      <a class="underline"><u>request a new one</u>.</a>
-    </p>
-  </div> <!-- sign-up-form -->
+  </div>
+</div>
+</div>
 </div>

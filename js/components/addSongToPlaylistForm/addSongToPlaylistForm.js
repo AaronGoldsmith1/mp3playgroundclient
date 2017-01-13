@@ -4,7 +4,7 @@ angular.module('Mp3Playground')
     controller: addSongToPlaylistForm,
     require: 'ngModel',
     bindings: {
-      playlistId: '='
+      playlist: '='
     }
   });
 
@@ -15,8 +15,9 @@ function addSongToPlaylistForm(PlaylistsRepo, SongsRepo, $element){
 
 
   ctrl.addSongToPlaylist = function(song){
-    PlaylistsRepo.addSong(ctrl.playlistId, song._id).then(function(res){
+    PlaylistsRepo.addSong(ctrl.playlist._id, song._id).then(function(res){
       console.log(res.data)
+      ctrl.playlist.songs.push(song)
     })
   }
 

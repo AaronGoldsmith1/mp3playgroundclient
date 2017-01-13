@@ -17,6 +17,9 @@ angular.module('Mp3Playground')
         'addSong': function(playlistId, songId){
           return $http.post(baseUrl + playlistId + '/songs', {songId: songId})
         },
+        'removeSong': function(playlistId, songId){
+          return $http.delete(baseUrl + playlistId + '/songs/' + songId)
+        },
         'update': function(playlistId, data){
           return $http.put(baseUrl + playlistId, data)
         },
