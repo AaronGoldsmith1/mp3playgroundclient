@@ -61,9 +61,10 @@ function songUpload($http, SongsRepo, $element, AudioParser){
       })
   } 
 
+//low-level javascript request from https://devcenter.heroku.com/articles/s3-upload-node
   function uploadFile(file, signedRequest, url){
     const xhr = new XMLHttpRequest();
-    xhr.open('PUT', signedRequest);
+    xhr.open('PUT', signedRequest); //could have used $http.put
     xhr.onreadystatechange = () => {
       if(xhr.readyState === 4){
         if(xhr.status === 200){
@@ -74,7 +75,6 @@ function songUpload($http, SongsRepo, $element, AudioParser){
           //document.getElementById('avatar-url').value = url;
         }
         else{
-          debugger
           alert('Could not upload file.');
         }
       }

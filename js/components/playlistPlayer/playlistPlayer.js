@@ -20,7 +20,7 @@ function playlistPlayer($http, $element, $q, $scope, lastfmRepo){
 
   var wavesurfer = WaveSurfer.create({
     container: "#wavesurfer-container",
-    height: 50
+    height: 50,
   });
 
   ctrl.$onDestroy = function() {
@@ -99,10 +99,11 @@ function playlistPlayer($http, $element, $q, $scope, lastfmRepo){
       }
     }
 
+
   ctrl.initListeners = function(){
     var throttledSecondsToMinutes = _.throttle(function(){
       var wholeSeconds = Math.floor(wavesurfer.getCurrentTime());
-      ctrl.progress = hhmmss(wholeSeconds);
+      ctrl.progress = hhmmss(wholeSeconds); //rendered with angular
 
       // Since this is not 'in' angular and it doesn't know about this update
       // We'll manually tell Angular there's  a change only if it's not already updating
@@ -113,18 +114,20 @@ function playlistPlayer($http, $element, $q, $scope, lastfmRepo){
     }, 1000);
 
     wavesurfer.on('audioprocess', function() {
-      // Call a 'throttled' function because this called constantnly
+      // Call a 'throttled' function because audioprocess called constantnly
       throttledSecondsToMinutes();
     });
   }
+
 
   ctrl.removeSongFromPlaylist = function(song){
     ctrl.onRemoveSong()(song);
   }
 
+//loads up song that's in active playlist
   ctrl.load = function(song){
     ctrl.currentSong = null;
-    var deferred = $q.defer();
+    var deferred = $q.defer(); //deferred promise
     wavesurfer.load(song.url);
     wavesurfer.on('ready', function(){
       song.duration = moment().startOf('day')
@@ -134,14 +137,11 @@ function playlistPlayer($http, $element, $q, $scope, lastfmRepo){
       deferred.resolve(song);
       wavesurfer.un('ready')
     });
-    return deferred.promise
+    return deferred.promise //object with methods that are called with 'resolve'
   }
   ctrl.init = function(){
     ctrl.initListeners()
     if (ctrl.songs.length) {
-      // ctrl.load(ctrl.songs[0]).then(function(song){
-      //   console.log("song loaded!", song);
-      // });
     }
   }
   ctrl.init();
